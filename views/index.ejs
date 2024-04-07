@@ -1,9 +1,30 @@
 <%-include("./partials/header")-%>
-  <body class="bg-teal-600 flex justify-center items-center">
-    <main class=" ">
-      <h1 class="text-white font-extrabold text-center text-4xl">Hello World</h1>
-      <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, modi.</p>
-    </main>
+  <body class="bg-teal-600 flex flex-col justify-center items-center">
+
+    <form action="/" method="post" class="mt-10">
+      <label for="postalCode">Enter Postal Code</label>
+      <input type="text" name="postalCode" required autocomplete="off">
+      <button type="submit">Get weather</button>
+    </form>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 p-4">
+    <% if (weather && weather.forecast.forecastday) { %>
+        <% weather.forecast.forecastday.forEach(day => { %>
+            <div class="bg-gray-200 p-4 rounded">
+                <p><%= day.date %></p>
+                <img src="<%= day.day.condition.icon %>" alt="Weather Icon" />
+                <p>Max Temp: <%= day.day.maxtemp_f %>°F</p>
+                <p>Min Temp: <%= day.day.mintemp_f %>°F</p>
+                <p>Chance of Rain: <%= day.day.daily_chance_of_rain %>%</p>
+                <p><%= day.day.condition.text %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <div class="bg-gray-200 p-4 rounded">
+            <p>No forecast data available</p>
+        </div>
+    <% } %>
+</div>
 
   </body>
 </html>
