@@ -1,38 +1,38 @@
-# Node + Express + EJS + Tailwind CSS Starter Template
 
-The intention of this project is how to create app using Node.js + Express.js + EJS + Tailwind css
+# Weather Pulse
 
-## Dependencies
+The WeatherAPI Web App is a simple and responsive web application that provides users with real-time weather forecasts for the current week. It fetches data from a weather API and displays essential weather details such as temperature, humidity, wind speed, and weather conditions.
+## Screenshots
 
-- [Node.js](https://nodejs.org/)
-- [Express.js](https://expressjs.com/)
-- [EJS](https://ejs.co/)
-- [Tailwind CSS](https://tailwindcss.com/)
 
-# Requirements
+![weatherpulse1](https://github.com/user-attachments/assets/50b3f575-540c-451b-961a-234843a9335a)
 
-You need to have installed [Node.js](https://nodejs.org/es/download/).
 
-# Set up
+## Demo
 
-Clone the repo or download it.
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/F3UzOItKjYM/0.jpg)](https://www.youtube.com/watch?v=F3UzOItKjYM)
 
-Go to the project folder and run
+## Tech Stack
 
-```sh
-$ npm install
+
+    Node.js
+    Express.js
+    EJS
+    Tailwind CSS
+
+
+
+## API Reference
+
+#### Get all items
+
+```http
+  GET /weather
+  GET /weather?api_key=YOUR_API_KEY&q=94016&days=7
 ```
 
-And run your server running the following command in the root of the project:
-
-```sh
-$ npm run dev
-```
-
-Start the Tailwind CLI build process
-
-Run the CLI tool to scan your template files for classes and build your CSS.:
-
-```sh
-$ npm run devcss
-```
+| Parameter | Type     | Description                  |
+| :-------- | :------- | :-------------------------   |
+| `api_key` | `string` | **Required**. Your API key   |
+|    `q`    | `string` | **Required**. City or Postal |
+|   `days`  | `string` | **Required**. # of days      |
